@@ -8,7 +8,7 @@ load('test_data.mat')
 
 
 turbine = 2; % 1 for Vestas, 2 for Enercon
-layout = 2; % 1 for even distribution, 2 for rows and 3 for circle
+layout = 3; % 1 for even distribution, 2 for rows and 3 for circle
 
 k = 0.0750;         % wake decay constant, set to k=0.0750
 data = readmatrix('ninjawind2.xlsx');
@@ -169,9 +169,9 @@ else
     yenercon = [0 0 0 38 135 301 561 933 1393 2720 3540 4180 4450 ones(1,13)*4500];
     f = fit(xenercon',yenercon','linearinterp');
 end
-energy = sum(f(u2))/1000; % MWh
+energy = 0.89*sum(f(u2))/1000; % MWh
 ularge = u.*ones(1,length(xy));
-optimalenergy = sum(f(ularge))/1000; % MWh
+optimalenergy = 0.89*sum(f(ularge))/1000; % MWh
 wakeloss = optimalenergy-energy;
 wakelosspercent = 100*wakeloss/energy;
 
