@@ -7,10 +7,10 @@ load('test_data.mat')
 % Ct_u := wind speed vector
 
 
-turbine = 2; % 1 for Vestas, 2 for Enercon
+turbine = 1; % 1 for Vestas, 2 for Enercon
 layout = 3; % 1 for even distribution, 2 for rows and 3 for circle
 
-k = 0.0750;         % wake decay constant, set to k=0.0750
+k = 0.0750; % wake decay constant, set to k=0.0750
 data = readmatrix('ninjawind2.xlsx');
 data = data(6:end,4);
 u = data;              % wind speeds in m/s
